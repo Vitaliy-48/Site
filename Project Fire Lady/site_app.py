@@ -66,7 +66,7 @@ def index():
 
 @app.route("/product/<int:candle_id>")
 def product(candle_id):
-    conn = sqlite3.connect("appX.db")
+    conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM candles WHERE id=?", (candle_id,))
     candle = cursor.fetchone()
@@ -86,7 +86,7 @@ def add_to_cart(candle_id):
 def cart():
     cart = session.get("cart", [])
     candles = []
-    conn = sqlite3.connect("appX.db")
+    conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
 
     total = 0
@@ -106,10 +106,9 @@ def cart():
 @app.route("/checkout", methods=["POST"])
 def checkout():
     customer_name = request.form["name"]
-
     cart = session.get("cart", [])
     candles = []
-    conn = sqlite3.connect("appX.db")
+    conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     for item in cart:
         cursor.execute("SELECT * FROM candles WHERE id=?", (item["id"],))
@@ -122,13 +121,20 @@ def checkout():
     total_price = sum(c['data'][2] * c['quantity']for c in candles)
     created_at = datetime.now().isoformat(timespec="minutes")
 
-    conn = sqlite3.connect("appX.db")
+    conn = sqlite3.connect("app.db")
     cursor = conn.cursor()
     cursor.execute("""
         INSERT INTO orders (customer_name, items, total_price, order_number, created_at)
         VALUES (?, ?, ?, ?, ?)
     """, (customer_name, items_json, total_price, order_number, created_at))
     conn.commit()
+
+    cursor.execute("""
+            DELETE FROM orders
+            WHERE id NOT IN (SELECT id FROM orders ORDER BY id DESC LIMIT 10)
+    """)
+    conn.commit()
+
     conn.close()
 
     send_order_to_telegram(order_number, customer_name, candles)
