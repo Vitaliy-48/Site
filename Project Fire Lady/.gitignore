@@ -11,9 +11,5 @@ __pycache__/
 # Секрети
 .env
 
-# Babel (зкомпільовані файли перекладу)
-translations/**/messages.mo
-translations/**/messages.po~
-
 # favicon
 static/favicon*/
