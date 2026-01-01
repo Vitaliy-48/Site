@@ -66,7 +66,7 @@ def index():
 
 @app.route("/product/<int:candle_id>")
 def product(candle_id):
-    conn = sqlite3.connect("app.db")
+    conn = sqlite3.connect("appX.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM candles WHERE id=?", (candle_id,))
     candle = cursor.fetchone()
@@ -86,7 +86,7 @@ def add_to_cart(candle_id):
 def cart():
     cart = session.get("cart", [])
     candles = []
-    conn = sqlite3.connect("app.db")
+    conn = sqlite3.connect("appX.db")
     cursor = conn.cursor()
 
     total = 0
@@ -109,7 +109,7 @@ def checkout():
 
     cart = session.get("cart", [])
     candles = []
-    conn = sqlite3.connect("app.db")
+    conn = sqlite3.connect("appX.db")
     cursor = conn.cursor()
     for item in cart:
         cursor.execute("SELECT * FROM candles WHERE id=?", (item["id"],))
@@ -122,7 +122,7 @@ def checkout():
     total_price = sum(c['data'][2] * c['quantity']for c in candles)
     created_at = datetime.now().isoformat(timespec="minutes")
 
-    conn = sqlite3.connect("app.db")
+    conn = sqlite3.connect("appX.db")
     cursor = conn.cursor()
     cursor.execute("""
         INSERT INTO orders (customer_name, items, total_price, order_number, created_at)
