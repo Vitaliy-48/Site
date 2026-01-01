@@ -1,0 +1,19 @@
+{% extends "site/site_base.html" %}
+{% block content %}
+<h2 class="mb-4">{{ _('Каталог') }}</h2>
+<div class="row g-3">
+{% for c in candles %}
+  <div class="col-12 col-sm-6 col-md-4">
+    <div class="card h-100 shadow-sm">
+      <img src="{{ url_for('static', filename=c[4]) }}" class="card-img-top" alt="{{ c[1] }}">
+      <div class="card-body p-2">
+        <h5 class="card-title">{{ c[1] }}</h5>
+        <p class="card-text">{{ c[3] }}</p>
+        <p class="mb-2"><strong>{{ _('Ціна') }}:</strong> {{ c[2] }} {{ _('грн') }}</p>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('product', candle_id=c[0]) }}">{{ _('Переглянути') }}</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

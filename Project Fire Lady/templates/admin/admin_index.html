@@ -1,0 +1,16 @@
+{% extends "admin/admin_base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Адмінка</h1>
+  <p class="lead">Виберіть розділ для роботи:</p>
+
+  <div class="list-group">
+    <a href="{{ url_for('admin.admin_candles') }}" class="list-group-item list-group-item-action">
+      🕯️ Список свічок
+    </a>
+    <a href="{{ url_for('admin.add_candle') }}" class="list-group-item list-group-item-action">
+      ➕ Додати свічку
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "site/site_base.html" %}
+{% block content %}
+<div class="alert alert-success">
+  <h2>{{ _('Дякуємо') }}, {{ name }}!</h2>
+  <p>{{ _('Ваше замовлення №%(num)s прийнято.', num=order_number) }}</p>
+  <p>{{ _('Сума') }}: <strong>{{ total }} {{ _('грн') }}</strong></p>
+  <a href="{{ url_for('index') }}" class="btn btn-primary">⬅ {{ _('Повернутися до каталогу') }}</a>
+</div>
+{% endblock %}

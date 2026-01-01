@@ -1,0 +1,35 @@
+{% extends "admin/admin_base.html" %}
+{% block content %}
+<h2>Адмінка — свічки</h2>
+<a href="{{ url_for('admin.add_candle') }}" class="btn btn-success mb-3">➕  Додати свічку</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Фото</th>
+      <th>ID</th>
+      <th>Назва</th>
+      <th>Ціна</th>
+      <th>Форма</th>
+      <th>Кольори</th>
+      <th>Дії</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in candles %}
+    <tr>
+      <td><img src="{{ url_for('static', filename=c[4]) }}" width="50" class="rounded" alt=""></td>
+      <td>{{ c[0] }}</td>
+      <td>{{ c[1] }}</td>
+      <td>{{ c[2] }} грн</td>
+      <td>{{ c[5] }}</td>
+      <td>{{ c[6] }}</td>
+      <td>
+        <a href="{{ url_for('admin.edit_candle', candle_id=c[0]) }}" class="btn btn-secondary btn-light btn-sm d-flex justify-content-center align-items-center" style="width:40px; height:40px;">✏️</a>
+        <a href="{{ url_for('admin.delete_candle', candle_id=c[0]) }}" class="btn btn-danger btn-sm d-flex justify-content-center align-items-center" style="width:40px; height:40px;">🗑️</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

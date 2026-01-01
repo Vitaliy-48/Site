@@ -1,0 +1,55 @@
+{% extends "site/site_base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-8 col-md-6">
+    <div class="card shadow-sm h-100">
+      <img src="{{ url_for('static', filename=candle[4]) }}" class="card-img-top" alt="{{ candle[1] }}">
+      <div class="card-body">
+        <h5 class="card-title d-flex align-items-end gap-2">
+          {{ candle[1] }}
+          <span class="ms-2 fs-6">{{ _('Колір') }}:</span>
+          <span id="color-name" class="ms-2 text-primary fw-semibold fs-6">білий</span>
+        </h5>
+        <p><strong>{{ _('Ціна') }}:</strong> {{ candle[2] }} {{ _('грн') }}</p>
+        <p><strong>{{ _('Форма') }}:</strong> {{ candle[5] }}</p>
+        <p>{{ candle[3] }}</p>
+
+        <h6>{{ _('Оберіть колір') }}:</h6>
+        {% set colors = candle[6].split(",") if candle[6] else [] %}
+        <form method="POST" action="{{ url_for('add_to_cart', candle_id=candle[0]) }}">
+          <div class="d-flex flex-wrap gap-2 mb-3" id="color-options">
+            {% for color in colors %}
+              <input type="radio" class="btn-check" name="color" id="color{{ loop.index }}" value="{{ color|trim }}"
+                     {% if loop.first %}checked{% endif %}>
+              <label class="btn btn-outline-primary" for="color{{ loop.index }}">{{ color|trim }}</label>
+            {% endfor %}
+
+          </div>
+
+          <h6>{{ _('Оберіть кількість') }}:</h6>
+          <div class="mb-3">
+            <input type="number" name="quantity" class="form-control-sm" style="width: 50px;" value="1" min="1" required>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success btn-sm">🛒 {{ _('Додати в кошик') }}</button>
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-sm">⬅ {{ _('Повернутися до каталогу') }}</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+<style>
+.color-circle{display:inline-block;width:20px;height:20px;border-radius:50%;border:2px solid #333}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  const opts=document.querySelectorAll("#color-options input");
+  const colorName = document.getElementById("color-name");
+  opts.forEach(o=>o.addEventListener("change",function(){
+    colorName.textContent=this.value;
+  }));
+});
+</script>
+{% endblock %}

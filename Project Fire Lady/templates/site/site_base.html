@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ current_lang }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ _('Fire Lady') }}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white border-bottom mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}">{{ _('Свічки') }}</a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('set_language', lang='uk') }}">UK</a>
+      <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('set_language', lang='en') }}">EN</a>
+      <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('set_language', lang='de') }}">DE</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('cart') }}">{{ _('Кошик') }} ({{ cart_count }})</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+</body>
+</html>

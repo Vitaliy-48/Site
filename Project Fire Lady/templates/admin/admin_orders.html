@@ -1,0 +1,32 @@
+{% extends "admin/admin_base.html" %}
+{% block content %}
+<h2 class="mb-4">Адмінка — замовлення</h2>
+{% if orders %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Номер замовлення</th>
+      <th>Імʼя клієнта</th>
+      <th>Товари (JSON)</th>
+      <th>Сума</th>
+      <th>Створено</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for o in orders %}
+    <tr>
+      <td>{{ o[0] }}</td>
+      <td>{{ o[4] }}</td>
+      <td>{{ o[1] }}</td>
+      <td><small>{{ o[2] }}</small></td>
+      <td>{{ o[3] }} грн</td>
+      <td>{{ o[5] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Замовлень ще немає</p>
+{% endif %}
+{% endblock %}

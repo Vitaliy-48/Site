@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Project Fire Lady\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-30 12:00+0000\n"
+"PO-Revision-Date: 2025-12-30 12:00+0000\n"
+"Last-Translator: Vitaliy Ivanov\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Магазин свічок"
+msgstr "Kerzenladen"
+
+msgid "Свічки"
+msgstr "Kerzen"
+
+msgid "Кошик"
+msgstr "Warenkorb"
+
+msgid "Замовлення"
+msgstr "Bestellungen"
+
+msgid "Адмінка свічок"
+msgstr "Kerzen-Admin"
+
+msgid "Каталог"
+msgstr "Katalog"
+
+msgid "Ціна"
+msgstr "Preis"
+
+msgid "грн"
+msgstr "UAH"
+
+msgid "Переглянути"
+msgstr "Ansehen"
+
+msgid "Форма"
+msgstr "Form"
+
+msgid "Оберіть колір"
+msgstr "Farbe wählen"
+
+msgid "Додати в кошик"
+msgstr "In den Warenkorb"
+
+msgid "Ваш кошик"
+msgstr "Ihr Warenkorb"
+
+msgid "Ваше імʼя"
+msgstr "Ihr Name"
+
+msgid "Оформити замовлення"
+msgstr "Bestellung aufgeben"
+
+msgid "Кошик порожній"
+msgstr "Warenkorb ist leer"
+
+msgid "Дякуємо"
+msgstr "Danke"
+
+msgid "Ваше замовлення №%(num)s прийнято."
+msgstr "Ihre Bestellung Nr. %(num)s wurde bestätigt."
+
+msgid "Сума"
+msgstr "Summe"
+
+msgid "Повернутися до каталогу"
+msgstr "Zurück zum Katalog"
+
+msgid "Адмінка — замовлення"
+msgstr "Admin — Bestellungen"
+
+msgid "Номер замовлення"
+msgstr "Bestellnummer"
+
+msgid "Імʼя клієнта"
+msgstr "Kundenname"
+
+msgid "Товари (JSON)"
+msgstr "Artikel (JSON)"
+
+msgid "Створено"
+msgstr "Erstellt am"
+
+msgid "Замовлень ще немає"
+msgstr "Noch keine Bestellungen"
+
+msgid "Адмінка — свічки"
+msgstr "Admin — Kerzen"
+
+msgid "Назва"
+msgstr "Name"
+
+msgid "Кольори"
+msgstr "Farben"
+
+msgid "Дії"
+msgstr "Aktionen"
+
+msgid "Додати свічку"
+msgstr "Kerze hinzufügen"
+
+msgid "Редагувати"
+msgstr "Bearbeiten"
+
+msgid "Видалити"
+msgstr "Löschen"
+
+msgid "Опис"
+msgstr "Beschreibung"
+
+msgid "Фото (URL)"
+msgstr "Foto (URL)"
+
+msgid "Кольори (через кому)"
+msgstr "Farben (durch Komma getrennt)"
+
+msgid "Зберегти"
+msgstr "Speichern"
+
+msgid "Редагувати свічку"
+msgstr "Kerze bearbeiten"
+
+msgid "Оновити"
+msgstr "Aktualisieren"
+
+msgid "без кольору"
+msgstr "ohne Farbe"
+
+msgid "🧾 Замовлення №%(order)s\n"
+msgstr "🧾 Bestellung Nr. %(order)s\n"
+
+msgid "👤 Ім'я: %(name)s\n\n"
+msgstr "👤 Name: %(name)s\n\n"
+
+msgid "🕯️ Товари:\n"
+msgstr "🕯️ Artikel:\n"
+
+msgid "- %(name)s (%(color)s) — %(price).0f грн\n"
+msgstr "- %(name)s (%(color)s) — %(price).0f UAH\n"
+
+msgid "\n💰 Разом: %(total).0f грн"
+msgstr "\n💰 Summe: %(total).0f UAH"

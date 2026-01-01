@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Адмінка Fire Lady</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon_ad.ico') }}">
+
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white border-bottom mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('admin.admin_candles') }}">Адмінка свічок</a>
+    <div class="ms-auto">
+      <a class="btn btn-outline-primary" href="{{ url_for('admin.admin_candles') }}">🕯️ Свічки</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('admin.admin_orders') }}">📦 Замовлення</a></div>
+  </div>
+</nav>
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+</body>
+</html>

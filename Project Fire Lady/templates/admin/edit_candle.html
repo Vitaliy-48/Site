@@ -1,0 +1,31 @@
+{% extends "admin/admin_base.html" %}
+{% block content %}
+<h2>Редагувати свічку</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Назва</label>
+    <input type="text" name="name" class="form-control" value="{{ candle[1] }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Ціна</label>
+    <input type="number" name="price" class="form-control" value="{{ candle[2] }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Опис</label>
+    <textarea name="description" class="form-control">{{ candle[3] }}</textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Фото (URL)</label>
+    <input type="text" name="image_url" class="form-control" value="{{ candle[4] }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Форма</label>
+    <input type="text" name="shape" class="form-control" value="{{ candle[5] }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Кольори (через кому)</label>
+    <input type="text" name="colors" class="form-control" value="{{ candle[6] }}">
+  </div>
+  <button type="submit" class="btn btn-success">Оновити</button>
+</form>
+{% endblock %}

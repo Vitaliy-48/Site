@@ -1,0 +1,19 @@
+# Віртуальне середовище
+.venv/
+venv/
+
+# Кеші Python
+__pycache__/
+
+# IDE (PyCharm)
+.idea/
+
+# Секрети
+.env
+
+# Babel (зкомпільовані файли перекладу)
+translations/**/messages.mo
+translations/**/messages.po~
+
+# favicon
+static/favicon*/

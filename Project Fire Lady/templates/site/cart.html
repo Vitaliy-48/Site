@@ -1,0 +1,36 @@
+{% extends "site/site_base.html" %}
+{% block content %}
+<h2 class="mb-4" xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:margin="http://www.w3.org/1999/xhtml">{{ _('Ваш кошик') }}</h2>
+{% if candles %}
+  <ul class="list-group mb-3 style="margin: auto; max-width: 500px;">
+    {% for item in candles %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="{{ url_for('static', filename=item['data'][4]) }}" width="80" class="me-3" alt="{{ item['data'][1] }}">
+          <div>
+            <div><strong>{{ item['data'][1] }}</strong> ({{ item['color'] }})</div>
+            <div>{{ _('Ціна за одиницю') }}: {{ item['data'][2] }} {{ _('грн') }}</div>
+            <div>{{ _('Кількість') }}: {{ item['quantity'] }}</div>
+            <div>{{ _('Сума') }}: {{ item['subtotal'] }} {{ _('грн') }}</div>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <h4 class="text-end">{{ _('Разом') }}: {{ total }} {{ _('грн') }}</h4>
+  <form method="POST" action="{{ url_for('checkout') }}" class="card p-3">
+    <div class="mb-3">
+      <label class="form-label">{{ _('Ваше імʼя') }}</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">{{_('Оформити замовлення')}}</button>
+  </form>
+  <div class="mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-primary">⬅ {{_('Повернутися до каталогу')}}</a>
+  </div>{% else %}
+  <p>{{ _('Кошик порожній') }}</p>
+  <div class="mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-primary">⬅ {{ _('Повернутися до каталогу') }}</a>
+  </div>
+{% endif %}
+{% endblock %}
